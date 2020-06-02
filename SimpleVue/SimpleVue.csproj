@@ -6,11 +6,23 @@
 
   <ItemGroup>
     <None Remove="src\HelloWorld.ts" />
+    <None Remove="src\inner.ts" />
     <None Remove="src\main.ts" />
-    <None Remove="vue-shim.d.ts" />
+    <None Remove="src\Person.ts" />
   </ItemGroup>
 
-	<Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
+	<PropertyGroup>
+		<DistDirectory>$(MSBuildProjectDirectory)\wwwroot\dist</DistDirectory>
+	</PropertyGroup>
+
+	<Target Name="CleanDist">
+		<Message Text="Deleting files in directory: $(DistDirectory)"></Message>
+		<RemoveDir Directories="$(DistDirectory)" />
+	</Target>
+
+	<Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
+
+		<CallTarget Targets="CleanDist"></CallTarget>
 		<!-- Ensure Node.js is installed -->
 		<Exec Command="node --version" ContinueOnError="true">
 			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
@@ -25,6 +37,8 @@
 	</Target>
 
 	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+
+		<!--<CallTarget Targets="CleanDist"></CallTarget>-->
 		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
 		<Exec Command="npm install" />
 		<Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.js --env.prod" />
@@ -42,8 +56,9 @@
 
 	<ItemGroup>
     <TypeScriptCompile Include="src\HelloWorld.ts" />
+    <TypeScriptCompile Include="src\inner.ts" />
     <TypeScriptCompile Include="src\main.ts" />
-    <TypeScriptCompile Include="vue-shim.d.ts" />
+    <TypeScriptCompile Include="src\Person.ts" />
   </ItemGroup>
 
 </Project>

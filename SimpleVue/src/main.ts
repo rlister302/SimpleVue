@@ -2,7 +2,11 @@
 
 import HelloWorld from './HelloWorld';
 
+Vue.component("hello-world", HelloWorld);
 new Vue({
     el: '#app',
-    render: h => (h)(HelloWorld)
+    //components: {
+    //    "hello-world": HelloWorld
+    //}
+    //render: h => (h)(HelloWorld)
 })

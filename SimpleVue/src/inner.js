@@ -18,24 +18,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import Inner from './inner';
-var HelloWorld = /** @class */ (function (_super) {
-    __extends(HelloWorld, _super);
-    function HelloWorld() {
+import { Component, Prop } from 'vue-property-decorator';
+var Inner = /** @class */ (function (_super) {
+    __extends(Inner, _super);
+    function Inner() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    HelloWorld = __decorate([
+    __decorate([
+        Prop()
+    ], Inner.prototype, "message", void 0);
+    Inner = __decorate([
         Component({
-            template: "\n                <div>\n                <div>Hello, World!</div>\n                <inner-component message='I injected this!'></inner-component>\n                </div>\n                ",
-            components: {
-                InnerComponent: Inner
-            },
-            name: "hello-world"
+            template: "\n                <div>\n                <div>I'm an inner component</div>\n                <div>This is an injected message: {{ message }}</div>\n                </div>"
         })
-    ], HelloWorld);
-    return HelloWorld;
+    ], Inner);
+    return Inner;
 }(Vue));
-export default HelloWorld;
-Vue.component("hello-world", HelloWorld);
-//# sourceMappingURL=HelloWorld.js.map
+export default Inner;
+//# sourceMappingURL=inner.js.map
