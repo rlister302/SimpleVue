@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.2.2",
         "webpack": "^2.2.0",
         "webpack-hot-middleware": "^2.12.2",
-        "reflect-metadata": "0.1.13"
+        "reflect-metadata": "0.1.13",
+        "requirejs": "2.3.6"
     }
 }

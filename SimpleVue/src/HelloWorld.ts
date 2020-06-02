@@ -6,16 +6,15 @@ import Inner from './inner'
     template: `
                 <div>
                 <div>Hello, World!</div>
-                <inner-component message='I injected this!'></inner-component>
                 </div>
                 `,
-    components: {
-        InnerComponent: Inner
-    },
-    name: "hello-world"
+    name: "hello-world",
+    //components: {
+    //    "inner-component": Inner
+    //}
 })
 export default class HelloWorld extends Vue {
 
 }
 
-Vue.component("hello-world", HelloWorld);
+//Vue.component("hello-world", HelloWorld);

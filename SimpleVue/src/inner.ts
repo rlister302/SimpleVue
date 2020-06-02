@@ -1,4 +1,4 @@
-﻿import Vue from 'vue';
+﻿import * as Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
@@ -6,9 +6,11 @@ import { Component, Prop } from 'vue-property-decorator';
                 <div>
                 <div>I'm an inner component</div>
                 <div>This is an injected message: {{ message }}</div>
-                </div>`
+                </div>`,
+
+    name: "inner-component"
 })
-export default class Inner extends Vue {
+export default class Inner extends Vue.default {
 
     //@Prop(String) message: string;
     @Prop() message: string;
