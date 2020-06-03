@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\Greeting.ts" />
     <None Remove="src\HelloWorld.ts" />
     <None Remove="src\inner.ts" />
     <None Remove="src\main.ts" />
@@ -55,6 +56,7 @@
 	</Target>-->
 
 	<ItemGroup>
+    <TypeScriptCompile Include="src\Greeting.ts" />
     <TypeScriptCompile Include="src\HelloWorld.ts" />
     <TypeScriptCompile Include="src\inner.ts" />
     <TypeScriptCompile Include="src\main.ts" />

@@ -2,6 +2,8 @@
 import { Component } from 'vue-property-decorator'
 import Inner from './inner'
 
+
+
 @Component({
     template: `
                 <div>

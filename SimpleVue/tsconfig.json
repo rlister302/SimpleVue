@@ -2,7 +2,7 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
-        "module": "amd",
+        "module": "umd",
         "moduleResolution": "node",
         "target": "es5",
         "sourceMap": true,
